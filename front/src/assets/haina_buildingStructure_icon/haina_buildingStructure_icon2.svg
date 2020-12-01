@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="313px" height="185px" viewBox="0 0 313 185" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02" transform="translate(-154.000000, -654.000000)">
+            <g id="分组-3" transform="translate(154.000000, 654.000000)">
+                <rect id="矩形复制-3" fill="#F2F2F2" x="0" y="0" width="313" height="185"></rect>
+                <g id="编组" transform="translate(21.000000, 44.000000)">
+                    <polygon id="Triangle-Copy-2复制-2" fill="#787878" transform="translate(6.000000, 8.500000) scale(1, -1) translate(-6.000000, -8.500000) " points="6 5 12 12 0 12"></polygon>
+                    <polygon id="Triangle-Copy-2复制-3" fill="#787878" transform="translate(30.000000, 44.500000) scale(1, -1) translate(-30.000000, -44.500000) " points="30 41 36 48 24 48"></polygon>
+                    <polygon id="Triangle-Copy-2复制-4" fill="#787878" transform="translate(30.000000, 109.500000) scale(1, -1) rotate(90.000000) translate(-30.000000, -109.500000) " points="30 106 36 113 24 113"></polygon>
+                    <path d="M6,17 L6,110.5" id="Path-15-Copy-2复制-2" stroke="#B8B8B8"></path>
+                    <path d="M30,50 L30,76.5" id="Path-15-Copy-2复制-3" stroke="#B8B8B8"></path>
+                    <path d="M6,43.5 L19,43.5" id="Path-16-Copy-5复制-3" stroke="#B8B8B8"></path>
+                    <path d="M30,76.5 L43,76.5" id="Path-16-Copy-5复制-5" stroke="#B8B8B8"></path>
+                    <path d="M6,110.5 L19,110.5" id="Path-16-Copy-5复制-4" stroke="#B8B8B8"></path>
+                    <text id="海纳小区" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                        <tspan x="18" y="12">海纳小区</tspan>
+                    </text>
+                    <text id="一级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                        <tspan x="44" y="47">一级名称</tspan>
+                    </text>
+                    <text id="二级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                        <tspan x="47" y="79">二级名称</tspan>
+                    </text>
+                    <text id="一级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                        <tspan x="40" y="114">一级名称</tspan>
+                    </text>
+                </g>
+                <text id="示例复制-3" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="20" y="22">示例</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

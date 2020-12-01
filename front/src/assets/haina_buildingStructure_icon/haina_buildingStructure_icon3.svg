@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="313px" height="206px" viewBox="0 0 313 206" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02" transform="translate(-728.000000, -227.000000)">
+            <g id="分组-2" transform="translate(728.000000, 227.000000)">
+                <rect id="矩形复制-4" fill="#F2F2F2" x="0" y="0" width="313" height="206"></rect>
+                <polygon id="Triangle-Copy-2复制-5" fill="#787878" transform="translate(27.000000, 52.500000) scale(1, -1) translate(-27.000000, -52.500000) " points="27 49 33 56 21 56"></polygon>
+                <polygon id="Triangle-Copy-2复制-6" fill="#787878" transform="translate(51.000000, 88.500000) scale(1, -1) translate(-51.000000, -88.500000) " points="51 85 57 92 45 92"></polygon>
+                <polygon id="Triangle-Copy-2复制-8" fill="#787878" transform="translate(75.000000, 119.500000) scale(1, -1) translate(-75.000000, -119.500000) " points="75 116 81 123 69 123"></polygon>
+                <polygon id="Triangle-Copy-2复制-7" fill="#787878" transform="translate(51.000000, 184.500000) scale(1, -1) rotate(90.000000) translate(-51.000000, -184.500000) " points="51 181 57 188 45 188"></polygon>
+                <path d="M27,61 L27,186" id="Path-15-Copy-2复制-4" stroke="#B8B8B8"></path>
+                <path d="M51,94 L51,120.5" id="Path-15-Copy-2复制-5" stroke="#B8B8B8"></path>
+                <path d="M75,127 L75,153.5" id="Path-15-Copy-2复制-6" stroke="#B8B8B8"></path>
+                <path d="M27,87.5 L40,87.5" id="Path-16-Copy-5复制-6" stroke="#B8B8B8"></path>
+                <path d="M51,120.5 L64,120.5" id="Path-16-Copy-5复制-7" stroke="#B8B8B8"></path>
+                <path d="M75,153.5 L88,153.5" id="Path-16-Copy-5复制-9" stroke="#B8B8B8"></path>
+                <path d="M27,185.5 L40,185.5" id="Path-16-Copy-5复制-8" stroke="#B8B8B8"></path>
+                <text id="海纳小区" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                    <tspan x="39" y="56">海纳小区</tspan>
+                </text>
+                <text id="一级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                    <tspan x="61" y="92">一级名称</tspan>
+                </text>
+                <text id="二级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                    <tspan x="85" y="123">二级名称</tspan>
+                </text>
+                <text id="三级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                    <tspan x="94" y="156">三级名称</tspan>
+                </text>
+                <text id="一级名称" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" letter-spacing="-0.324" fill="#000000">
+                    <tspan x="61" y="189">一级名称</tspan>
+                </text>
+                <text id="示例复制-4" font-family=".PingFangSC-Regular, .PingFang SC" font-size="12" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="20" y="22">示例</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,78 @@
+.impowerBox .title{
+    display:none !important;
+}
+.impowerBox .info{
+    width:240px !important;
+}
+.impowerBox .status{
+    padding:12px 0;
+    padding-top:0;
+}
+.impowerBox .status.status_browser{
+    visibility: hidden !important;
+}
+.waiting.panelContent {
+    position: relative;
+}
+
+html{
+    width: 240px !important;
+    
+}
+/* 扫描部分 */
+.impowerBox .icon38_msg.succ{
+    background: url(./code_success.svg) no-repeat;
+    background-size: 100% !important;
+    vertical-align: bottom;
+}
+.impowerBox .icon38_msg.warn{
+    background: url(./code_error.svg) no-repeat;
+    background-size: 100% !important;
+    vertical-align: bottom;
+}
+.js_status .status_txt h4,.js_status .status_txt p{
+    display:none !important;
+}
+.status.js_wx_after_scan .status_txt:after{
+    content:'扫码成功，登录中…';
+    color:#007E3B;
+}
+.status.js_wx_after_cancel .status_txt:after{
+    content:'登录失败，请重试';
+    color:#B43537;
+}
+.impowerBox .icon38_msg {
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+}
+.status.js_status{
+     /* display:block !important; */
+    position: absolute !important;
+    top: 0 !important;
+    width:100%;
+    text-align:center;
+}
+.impowerBox .wrp_code {
+    position: absolute;
+    width: 100%;
+    left:50%;
+    transform: translateX(-50%);
+    width:174px;
+    height:174px;
+    background:url(./code_bg.svg) no-repeat 100% 100%;
+    margin-top:40px;
+    padding:2px;
+    box-sizing:border-box;
+}
+.impowerBox .qrcode{
+    width:100% !important;
+    margin-top:0;
+    border:0;
+}
+
+body{
+    height:260px !important;
+    overflow:hidden;
+    position:relative;
+}

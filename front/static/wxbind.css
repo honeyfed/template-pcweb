@@ -1,0 +1,12 @@
+.title {
+  display: none !important;
+}
+.impowerBox,.qrcode {
+  width: 170px !important;
+  margin-top:0 !important;
+  border: none !important;
+}
+.info {
+  display: none !important;
+}
+  

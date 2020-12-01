@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>分组</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板-copy-12" transform="translate(-422.000000, -233.000000)">
+            <g id="步骤条" transform="translate(422.000000, 233.000000)">
+                <g id="分组-2">
+                    <g id="分组">
+                        <circle id="Oval-14" stroke="#006EFF" cx="10" cy="10" r="9.5"></circle>
+                        <polyline id="Line" stroke="#0075FF" stroke-linecap="square" points="6 10 9 13 15 7"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

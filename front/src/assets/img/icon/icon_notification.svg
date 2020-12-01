@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>喇叭</title>
+    <desc>Created with Sketch.</desc>
+    <g id="喇叭" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="分组" transform="translate(0.500000, 2.500000)" stroke="#B17616">
+            <polygon id="Path-2" points="0.0203038884 3.03676734 2.9569084 3.03676734 8.15151602 9.09494702e-13 10 9.09494702e-13 10 11 7.05133096 11 2.9569084 8.17752052 0 8.17752052"></polygon>
+            <path d="M14,2 C15.3333333,4.39446678 15.3333333,6.72780011 14,9" id="Path-5"></path>
+            <path d="M12.5,5.5 L12.5,6.5" id="Line-19" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

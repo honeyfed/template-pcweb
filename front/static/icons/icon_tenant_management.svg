@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>住户信息管理</title>
+    <desc>Created with Sketch.</desc>
+    <g id="住户信息管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M1,12.5 C1,10.172 5.664,9 8,9 C10.336,9 15,10.172 15,12.5 L15,15 L1,15 L1,12.5 Z M13,12.567 C12.622,11.962 10.134,11 8,11 C5.866,11 3.378,11.962 3,12.567 L3,13 L13,13 L13,12.567 Z M8,8 C5.79,8 4,6.21 4,4 C4,1.79 5.79,0 8,0 C10.21,0 12,1.79 12,4 C12,6.21 10.21,8 8,8 Z M8,6 C9.1054305,6 10,5.1054305 10,4 C10,2.8945695 9.1054305,2 8,2 C6.8945695,2 6,2.8945695 6,4 C6,5.1054305 6.8945695,6 8,6 Z" id="Combined-Shape" fill="#888888" fill-rule="nonzero"></path>
+    </g>
+</svg>

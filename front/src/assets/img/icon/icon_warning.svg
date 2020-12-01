@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>待审核</title>
+    <desc>Created with Sketch.</desc>
+    <g id="待审核" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="椭圆形" fill="#FE9D00" fill-rule="nonzero" cx="8" cy="8" r="7"></circle>
+        <path d="M7,4 L9,4 L9,9 L7,9 L7,4 Z M7,10 L9,10 L9,12 L7,12 L7,10 Z" id="合并形状" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

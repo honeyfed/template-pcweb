@@ -1,12 +1,124 @@
-@font-color-1:#333;
-@font-color-2:#888;
-@font-notice:#bebebe;
-@font-outstand:#2c80ff;
-@color-notice:#ff6252;
-@color-disabled:#eee;
-@color-2:#006ae8;
-@font-disable:#ccc;
 @title-background:#eef0f4;
-@def-blue:#2c80ff;
-@def-red:#ff6252;
-@border:1px solid #ccc;
+@def-blue:#006eff;
+@border:1px solid #ddd;
+@header-color:#fff;
+
+/// 腾讯云设计原则 /////////////////////////////////////////////////////
+
+////////////// VARIABLES ////////////////
+@min-width-page: 1420px;
+@max-width-content: 1360px;
+
+@main-bg-color: #f2f2f2;
+@main-color: #006eff;
+@background-color:#262626; // 头部导航栏背景
+
+@border-color: #ddd;
+@hover-border-color: #bbb;
+
+@button-bg-color: #fff;
+@button-border-color: @border-color;
+@button-hover-border-color: @hover-border-color;
+@button-primary-hover-color:#0063e5;
+
+@line-horizontal-color: #e5e5e5;
+
+@state-normal-color: #0abf5b;
+@state-warning-color: #ff9d00;
+@state-danger-color: #e54545;
+
+@font-color-title: #000; // 标题文字使用字色 #000000；
+@font-color-table: #444; // 表格文字和表单内容使用字色 #444444；
+@font-color-label: #888; // label或者tip（说明性）文字颜色
+@font-color-button: #fff; // 蓝色、橙色按钮上，大色块背景上文字使用字色 #ffffff；
+@font-color-link: #006eff; // 链接文字使用字色 #006eff；
+
+@font-size-h1: 16px; // 一级标题
+@font-size-h2: 14px; // 二级标题
+@font-size-h3-text: 12px;       // 三级标题/导航/正文
+@font-size-lg: 36px;            // 特殊大字体
+
+@font-family: 'pingfang SC','San Francisco', 'microsoft yahei ui','microsoft yahei', arial,'helvetica neue','hiragino sans gb',simsun,sans-serif;
+
+//// 默认按钮
+@button-color: #000;
+@button-bg-color: #fff;
+@button-hover-bg-color: #f2f2f2;
+@button-border-color: #ddd;
+@button-hover-border-color: #ddd;
+
+@default-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+
+
+//////////// MIXINS ////////////////////////////////
+.mixin-default-button {
+  color: @button-color;
+  background-color: @button-bg-color;
+  border: 1px solid @button-border-color;
+  font-size: @font-size-h3-text;
+  border-radius: 0;
+  padding: 0;
+  &:hover {
+    border: 1px solid @button-hover-border-color;
+    background-color: @button-hover-bg-color;
+  }
+}
+
+// 主要按钮
+
+
+// 警告按钮
+
+// 禁用按钮
+
+
+// input
+.mixin-default-input {
+  font-size: @font-size-h3-text;
+  min-width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid @border-color;
+  border-radius: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  color: @font-color-table;
+  transition: all .3s cubic-bezier(.65,.05,.36,1);
+
+  &:hover {
+    border-color: @hover-border-color;
+    outline: 0 none;
+  }
+}
+
+//////////////////////////////// GLOBAL STYLES /////////////////////////////
+body,html{
+	font-size: 14px;
+	background: @main-bg-color;
+}
+
+#viewport {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 1220px;
+}
+
+#app {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 1220px;
+}
+
+
+
+/////////////////  ANIMATIONS //////////////////////////
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

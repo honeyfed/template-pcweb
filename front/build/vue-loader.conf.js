@@ -1,17 +1,28 @@
-var utils = require('./utils')
-var config = require('../config')
-var isProduction = process.env.NODE_ENV === 'production'
+'use strict'
+const utils = require('./utils')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const config = require('../config')
+const isProduction = process.env.NODE_ENV === 'production'
+const sourceMapEnabled = isProduction
+  ? config.build.productionSourceMap
+  : config.dev.cssSourceMap
 
 module.exports = {
-  loaders: utils.cssLoaders({
-    sourceMap: isProduction
-      ? config.build.productionSourceMap
-      : config.dev.cssSourceMap,
-    extract: isProduction
-  }),
-  postcss: [
-    require('autoprefixer')({
-      browsers: ['iOS >= 7', 'Android >= 4.1']
-    })
-  ]
+  loaders: [{
+    test: /\.(sa|sc|c|le)ss$/,
+    use: [
+      MiniCssExtractPlugin.loader,
+      'css-loader',
+      'less-loader'
+    ]
+  }
+  ],
+  cssSourceMap: sourceMapEnabled,
+  cacheBusting: config.dev.cacheBusting,
+  transformToRequire: {
+    video: ['src', 'poster'],
+    source: 'src',
+    img: 'src',
+    image: 'xlink:href'
+  }
 }

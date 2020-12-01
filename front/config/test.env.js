@@ -1,6 +1,4 @@
-var merge = require('webpack-merge')
-var devEnv = require('./dev.env')
-
-module.exports = merge(devEnv, {
-  NODE_ENV: '"testing"'
-})
+'use strict'
+module.exports = {
+  NODE_ENV: JSON.stringify('test')
+}

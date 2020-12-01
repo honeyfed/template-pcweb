@@ -1,74 +1,111 @@
-// 常用前端防重放逻辑
 
-import axios from 'axios';
-import { getQueryString } from '../utils/common';
+import { ApiError } from './error'
+import net from '@/utils/net'
+import toast from '@/utils/toast.js'
+import ErrorCodeDescription from '@/errcode_description.js'
 
-const HEADER_ROUTER = '';
+let axios = net
 
-export function contractRouterUrl(url) {
-  return `${HEADER_ROUTER}${url}`;
-}
-
-function extendRequestObj(obj) {
-  return {
-    ...obj
-  };
-}
-
-// 获取后端时间戳
-const TIME_STAMP = '/api/timestamp';
-
-export async function commonHttpRequest(url, obj, type) {
-  let gTimeOffset = sessionStorage.getItem('currentDiffTime') || 0;
-  const clientTime = +new Date();
-  if (sessionStorage.getItem('currentServerTime')) {
-    return useCommonHeader(url, obj, type, parseInt(gTimeOffset));
-  }
-  let res = await axios.get(contractRouterUrl(TIME_STAMP));
-  if (res.status === 200) {
-    let data = res.data;
-    let serverTime = parseInt(data);
-    if (isFinite(serverTime)) {
-      gTimeOffset = +serverTime - clientTime;
-    }
-    sessionStorage.setItem('currentServerTime', serverTime);
-    sessionStorage.setItem('currentDiffTime', gTimeOffset);
-    return useCommonHeader(url, obj, type, gTimeOffset);
-  }
-}
-
-function useCommonHeader(url, obj, type, pastTime) {
-  const commonHeader = {
-    'cmu-timestamp': '' + (+new Date() + pastTime),
-    'cmu-nonce': ('' + Math.random()).slice(2)
-  };
-  const userCode = getQueryString('user_code');
-  obj = {
-		...obj,
-		userCode
-	};
-  const http = type.toLocaleLowerCase() === 'get' ? axios.get(url, {params: extendRequestObj(obj)}) :
-		axios.post(url, extendRequestObj(obj), {headers: commonHeader});
-  return http.then(
-    result => {
-      return result;
-    },
-    err => {
-      if (!navigator.onLine) {
-        return {
-          data: {
-            retcode: -2,
-            code: -2,
-            message: '网络异常',
-            result: {
-              retcode: -2,
-              code: -2,
-              message: '网络异常'
-            }
-          }
-        };
+export function sendCode (data) {
+  axios.post('/Auth/GetVerifyCode', data).then(result => {
+    if (result.data && result.data.code === 0) {
+    } else {
+      if (ErrorCodeDescription[result.data.code]) {
+        toast.error(ErrorCodeDescription[result.data.code])
+      } else {
+        toast.error(result.data.message)
       }
     }
-  );
+  }).catch(err => {
+    toast.error('网络开小差了')
+  })
 }
 
+export function getMenus () {
+  return axios.post('/Config/Menus')
+    .then(res => res.data)
+}
+
+export function checkCode (mobile, code) {
+  return new Promise((resolve, reject) => {
+    axios.post('/hc/sms/checkCode', {
+      'phoneNumber': mobile,
+      'vcode': code
+    }).then(result => {
+      resolve(result)
+    }).catch(err => {
+      console.error(err)
+      reject(new ApiError('验证码'))
+    })
+  })
+}
+
+export function loginWithMobile (data) {
+  return new Promise((resolve, reject) => {
+    axios.post('/Auth/Login', data).then(result => {
+      resolve(result)
+    }).catch(err => {
+      reject(new ApiError('登录'))
+    })
+  })
+}
+
+export function bindMobileAndAdminId (mobile, adminId) {
+  return new Promise((resolve, reject) => {
+    axios.post('/hc/admin/bindMobileAndAdminId', {
+      'mobilePhone': mobile,
+      'adminId': adminId
+    }).then(result => {
+      if (result.data && result.data.code === 0) {
+        resolve()
+      }
+    }).catch(err => {
+      console.error(err)
+      reject(new ApiError('绑定微信号'))
+    })
+  })
+}
+
+export function getLoginAdminInfo () {
+  return new Promise((resolve, reject) => {
+    axios.post('/User/Info').then(result => {
+      if (result.data && result.data.code === 0) {
+        resolve(result.data.data)
+      } else {
+        reject(new Error('获取用户信息失败'))
+      }
+    }).catch(err => {
+      console.error(err)
+      reject(new ApiError('获取用户信息'))
+    })
+  })
+}
+
+export function getAdminCommunityList () {
+  return new Promise((resolve, reject) => {
+    axios.post('/hc/admin/getAdminCommunityList').then(result => {
+      if (result.data && result.data.code === 0) {
+        resolve(result.data.data)
+      } else {
+        reject(new Error('获取小区列表失败'))
+      }
+    }).catch(err => {
+      console.error(err)
+      reject(new ApiError('获取小区列表'))
+    })
+  })
+}
+
+/**
+ * 登出
+ */
+export function logout () {
+  return new Promise((resolve, reject) => {
+    axios.post('/hc/admin/logout').then(response => {
+      resolve(response.data)
+    }).catch(err => {
+      console.log('logout error: ', err)
+      reject(new ApiError('登出失败'))
+    })
+  })
+}
