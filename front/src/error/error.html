@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title><?= hainaTitle ?></title>
+    </head>
+    <body>
+        <div class="error-container">
+            <div class="error-wrap">
+                <div class="error-btn-warp">
+                    <a href="javascript:;" class="returnBtn"  onClick="javascript:history.go(-1);"></a>
+                </div>
+            </div>
+        </div>
+
+        <h1 style="display:none">ERROR PAGE</h1>
+        <? if (typeof error !== "undefined") { ?>
+        <h2 style="display: none;"><?= JSON.stringify(error) ?></h2>
+        <? } ?>
+</body>
+</html>
+
+
+
