@@ -91,23 +91,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "taf": {
-    "app": "CommunityPlatformTest",
-    "service": "SimpleWeb",
-    "set": "",
-    "containers": [],
-    "platform": "213.taf.wsd.com",
-    "node": "6771",
-    "version": {
-      "major": 2,
-      "minor": 5,
-      "build": 4
-    },
-    "exclude": [
-      "package-lock.json",
-      "node_modules",
-      "npm-shrinkwrap.json"
-    ],
-    "include": {}
+  "honeyConfig": {
+    "src": "./front/src"
   }
 }
