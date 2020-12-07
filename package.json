@@ -1,5 +1,5 @@
 {
-  "name": "haina-web-se",
+  "name": "{{name}}",
   "version": "1.0.0",
   "description": "海纳单小区",
   "author": "nicolasxiao <nicolasxiao@tencent.com>",
