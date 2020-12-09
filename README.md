@@ -4,25 +4,25 @@
 # 安装依赖
 
 ```bash
-tnpm i
+npm i
 ```
 
 # 前端开发
 
 ```bash
-tnpm run dev
+npm run dev
 ```
 
 # 前端构建发布
 
 ```bash
-tnpm run build
+npm run build
 ```
 
 # 启动web服务
 
 ```bash
-tnpm start
+npm start
 ```
 
 # 目录结构
