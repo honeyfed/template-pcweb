@@ -1,13 +1,23 @@
 // this is the global actions
-import * as api from '@/api'
+import * as Api from '@/api';
 
 export default {
-  async getMenus ({commit}) {
-    await api.getMenus()
-      .then(res => {
-        if (res.data) {
-          commit('changeMenus', JSON.parse(res.data))
-        }
-      })
-  }
-}
+  async getMenus({ commit }) {
+    const defaulMenu = {
+      title: '',
+      children: [],
+    };
+
+    const menu = await Api.test();
+
+
+    defaulMenu.children = menu.map(val => {
+      return {
+        ...val,
+        showChildren: true
+      };
+    });
+    console.log(defaulMenu)
+    commit('changeMenus', [defaulMenu]);
+  },
+};

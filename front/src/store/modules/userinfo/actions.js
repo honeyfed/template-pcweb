@@ -1,39 +1,13 @@
-import * as api from '@/api'
+import * as api from '@/api/index';
 
 export default {
-  login ({ commit }, formData) {
-    return new Promise((resolve, reject) => {
-      api.loginWithMobile(formData).then((res) => {
-        resolve(res)
-      }).catch(err => {
-        commit('setUserInfo', null)
-      })
-    })
+  async getUserInfo({ commit }) {
+    const result = await api.test();
+    if (result) {
+      commit('setUserInfo', result);
+      return;
+    }
+    commit('setUserInfo', null);
+    throw new Error('获取用户信息为空');
   },
-  getUserInfo ({ commit }) {
-    return new Promise((resolve, reject) => {
-      api.getLoginAdminInfo().then(result => {
-        if (result) {
-          commit('setUserInfo', result)
-          resolve()
-        } else {
-          commit('setUserInfo', null)
-          reject(new Error('获取用户信息为空'))
-        }
-      }).catch(err => {
-        reject(err)
-      })
-    })
-  },
-
-  logout ({ commit }) {
-    return new Promise((resolve, reject) => {
-      api.logout().then(() => {
-        resolve()
-      }).catch(err => {
-        reject(err)
-      })
-    })
-  }
-
-}
+};

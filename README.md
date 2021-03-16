@@ -1,43 +1,230 @@
-# {{{name}}}
-# 基于node的纯前端vue框架
+双击markdown插件，就可以开始编辑拉，当前模式，无法黏贴图片哦，仅双击进入markdown编辑模式，才支持黏贴图片
 
-# 安装依赖
+# honey-cli
 
-```bash
-npm i
-```
+![GitHub](https://img.shields.io/github/license/honeyfed/honeycli)
+![size](https://img.shields.io/github/repo-size/honeyfed/honeycli)
 
-# 前端开发
+[TOC]
 
-```bash
-npm run dev
-```
+## how-tos
 
-# 前端构建发布
+### 升级cli
 
 ```bash
-npm run build
+honey upgrade
 ```
 
-# 启动web服务
+### 新建项目
 
 ```bash
-npm start
+honey new
 ```
 
-# 目录结构
+### 提交代码
 
-- app express服务
-- front 前端代码
-  - build 前端构建脚本
-  - config 构建配置
-  - src 源码
-    - api api封装
-    - assets 资源文件
-    - components 通用组件
-    - error 错误页面，404页面
-    - router 路由设置
-    - utils 工具函数
-    如果需要添加页面在src下面添加目录即可
-  -static 纯静态文件
+```bash
+honey commit
+```
+
+### 校验代码
+
+```bash
+honey lint
+```
+
+### run extend command
+
+```bash
+honey extend <command>
+```
+
+### 构建项目
+
+```bash
+honey build
+```
+
+### 本地调试
+
+```bash
+honey dev
+```
+
+### 格式化代码
+
+```bash
+honey format
+```
+
+## config
+
+**honeycli**的配置写在项目的*package.json*里
+
+如下：
+
+```json
+{
+  "honeyConfig": {
+    "src": "./src"
+  }
+}
+```
+
+### 配置参数
+
+#### src
+
+源码目录
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "src": "./src"
+  }
+}
+```
+
+#### dist
+
+代码生成目录
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "dist": "./dist"
+  }
+}
+```
+
+#### static
+
+静态资源目录，目录中文件不会被编译，只会被复制到代码生成目录中
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "static": "./static"
+  }
+}
+```
+
+#### isLib
+
+是否为组件/库项目
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "isLib": true
+  }
+}
+```
+
+#### libName
+
+组件名（必须是蛇形命名, 如：**dropdown-menu**）
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "libName": "dropdown-menu"
+  }
+}
+```
+
+#### cdn
+
+配置cdn地址
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "cdn": "https://static.xx.com"
+  }
+}
+```
+
+#### rem
+
+是否自动转换px为rem, 默认为*false*
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "rem": true
+  }
+}
+```
+#### appPath
+
+配置打包文件夹路径
+
+e.g.
+
+```json
+{
+  "honeyConfig": {
+    "appPath": "/pcweb"
+  }
+}
+```
+
+#### dev
+
+开发配置
+
+如下：
+
+- *port* 开发服务器监听端口
+- *proxy* 接口映射
+- *mock* mock文件
+
+```json
+{
+  "honeyConfig": {
+    "dev": {
+      "port" : 8080,
+      "proxy": [
+        {
+          "from": "/access",
+          "to": "https://wy-test.haina.com"
+        }
+      ],
+      "mock": "path to mock.js"
+    }
+  }
+}
+```
+
+#### 如何编写mock文件
+
+如下：
+
+```javascript
+module.exports = function(req, res) {
+  console.log('req.path: ', req.path);
+  if (req.path === '/access/timestamp') {
+    res.send('' + Date.now());
+    return false;
+  }
+};
+
+```
+
+
 

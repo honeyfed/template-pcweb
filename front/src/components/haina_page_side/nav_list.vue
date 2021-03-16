@@ -4,25 +4,21 @@
       class="list-item"
       v-for="(item, index) in list"
       :key="index"
-      :class="[activeName.includes(item.name) ? 'active' : '',
-                !!item.children === true ? 'has-children' : '',
-                item.showChildren ? 'expanded' : 'collapsed',
-                level > 0 && !navExpanded ? 'children-item' : '']"
+      :class="[
+        activeName.includes(item.name) ? 'active' : '',
+        item.children ? 'has-children' : '',
+        item.showChildren ? 'expanded' : 'collapsed',
+        level > 0 && !navExpanded ? 'children-item' : '',
+      ]"
     >
       <a
-        @click.prevent.stop="onItemClicked(item.link, index)"
-        :style="{ paddingLeft: (level * 16) * ( navExpanded ? 1 : 0 ) + 'px'}"
+        @click.prevent.stop="onItemClicked(item)"
+        :style="{ paddingLeft: level * 16 * (navExpanded ? 1 : 0) + 'px' }"
       >
         <!-- 图标 hiddenIcon为真则隐藏图标 level >= 1时显示默认图标-->
         <template v-if="!hiddenIcon || level > 0">
           <!-- 有子列表 -->
-          <template v-if="!!item.children === true">
-            <!-- 激活 且 收缩状态，则显示高亮图标，否则普通图标 -->
-            <!-- <template v-if="activeName === item.name && !navExpanded">
-              <img v-if="item.activeIcon" class="item-preicon" :src="item.activeIcon"/>
-              <div v-else class="item-preicon"></div>
-            </template>-->
-            <!-- <template v-else> -->
+          <template v-if="item.children">
             <img
               v-if="item.icon"
               class="item-preicon"
@@ -34,13 +30,6 @@
           </template>
           <!-- 无子列表 -->
           <template v-else>
-            <!-- 激活 -->
-            <!-- <template v-if="activeName === item.name">
-              <img v-if="item.activeIcon" class="item-preicon" :src="item.activeIcon"/>
-              <div v-else class="item-preicon"></div>
-            </template>-->
-            <!-- 未激活 -->
-            <!-- <template v-else> -->
             <img
               v-if="item.icon"
               class="item-preicon"
@@ -51,116 +40,112 @@
             <!-- </template> -->
           </template>
         </template>
-        <span :class="{'child-active': activeName.includes(item.name) }">{{item.name}}</span>
+        <span :class="{ 'child-active': activeName.includes(item.name) }">{{
+          item.name
+        }}</span>
 
         <i
-          v-if="!!item.children === true"
+          v-if="item.children"
           class="tea-icon tea-icon-arrowdown"
           style="position:absolute;right:10px;top:50%;transform:translateY(-50%);"
         ></i>
       </a>
 
-      <RecursiveList
-        v-if="!!item.children === true"
+      <NavList
+        v-if="item.children"
         v-show="item.showChildren"
         :list="item.children"
         :level="level + 1"
         :hiddenIcon="true"
         :parentIndex="index"
-        :activeIndexPath="activeIndexPath"
         :activeName="activeName"
         :navExpanded="navExpanded"
-        @menuClick="onChildrenItemClicked"
-      ></RecursiveList>
+        @menu-click="onChildrenItemClicked"
+      ></NavList>
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'RecursiveList',
+  name: 'NavList',
   props: {
     list: {
       type: Array,
-      required: true
+      required: true,
     },
     level: {
       type: Number,
-      required: true
+      required: true,
     },
-    activeIndexPath: {
-      type: Array,
-      required: true
-    },
+
     parentIndex: {
       type: Number,
-      required: true
+      required: true,
     },
     navExpanded: {
       type: Boolean,
-      required: true
+      required: true,
     },
     hiddenIcon: {
       type: Boolean,
-      default: false
+      default: false,
     },
     activeName: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
-  data () {
-    return {}
+  data() {
+    return {};
   },
   computed: {
-    levelClass () {
-      return 'level-' + this.level
-    }
+    levelClass() {
+      return `level-${this.level}`;
+    },
   },
 
   methods: {
-    onItemClicked (link, index) {
-      if (!link || !link.trim() || link === '#') {
+    onItemClicked(item) {
+      if (item.children) {
         // 表示有子菜单，显示隐藏子菜单
-        this.showChildren(index)
-        return
+        this.showChildren(item);
+        return;
       }
-
+      if (this.activeName.includes(item.name)) {
+        return;
+      }
       // collapse all children list
-      this.collapseAllChildren()
-      this.jumpLink(link, index) // 跳转
+      this.collapseAllChildren();
+      this.jumpLink(item); // 跳转
     },
 
-    showChildren (index) {
-      let item = this.list[index]
-      item.showChildren = !item.showChildren
-      this.list.splice(index, 1, item)
+    showChildren(item) {
+      this.$set(item, 'showChildren', !item.showChildren);
     },
 
-    collapseAllChildren () {
-      this.list.forEach((menu, index) => {
-        if (menu.showChildren) {
-          menu.showChildren = false
-          this.list.splice(index, 1, menu)
+    collapseAllChildren() {
+      this.list.forEach((menuItem) => {
+        if (menuItem.showChildren) {
+          this.$set(menuItem, 'showChildren', false);
         }
-      })
+      });
     },
 
-    jumpLink (link, index) {
-      let indexPath = this.level === 0 ? [index] : [this.parentIndex, index]
-      let emitData = { data: this.list[index], indexPath: indexPath }
-      this.$emit('menuClick', this.list, emitData)
+    jumpLink(item) {
+      const emitData = { data: item };
+      this.$emit('menu-click', this.list, emitData);
     },
 
-    onChildrenItemClicked (list, data) {
-      let currentIndex = data.indexPath[0]
+    onChildrenItemClicked(list, data) {
+      // let currentIndex = data.indexPath[0];
       if (this.level > 0) {
-        data.indexPath.splice(0, 0, this.parentIndex)
+        data.indexPath.splice(0, 0, this.parentIndex);
       }
-      this.$emit('menuClick', this.list, data)
-    }
-  }
-}
+      this.$emit('menu-click', this.list, data);
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -195,8 +180,6 @@ img.path {
       align-items: center;
       width: 100%;
       height: @itemHeight;
-
-      // padding: @itemPaddingVertical 0;
       line-height: 35px;
       box-sizing: border-box;
 
@@ -234,7 +217,7 @@ img.path {
           display: block;
           width: 3px;
           height: 3px;
-          content: "";
+          content: '';
           border-radius: 10px;
           background: #666;
         }
@@ -243,15 +226,10 @@ img.path {
       span {
         display: inline-block;
         width: auto;
-        // height: @itemHeight - 2 * @itemPaddingVertical;
-        // line-height: @itemHeight - 2 * @itemPaddingVertical;
         margin-left: 10px;
         color: rgba(184, 184, 184, 1);
         font-size: 13px;
         font-weight: 500;
-        // vertical-align: middle;
-
-        // vertical-align: top;
       }
       // 子菜单激活状态
       .child-active {

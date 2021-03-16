@@ -69,6 +69,6 @@ const license = `<div style="font-size: 12px;padding: 20px; color: #333; text-al
   本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。 <br/>
   贵司和本公司因本协议产生任何纠纷或争议的，首先应友好协商解决；协商不成的，贵司同意将纠纷或争议提交至本协议签订地（深圳市南山区）有管辖权的人民法院解决。 <br/>
   <br/>
-  <p style="text-align: right;">深圳市腾讯计算机系统有限公司</p></div>`
+  <p style="text-align: right;">深圳市腾讯计算机系统有限公司</p></div>`;
 
-export default license
+export default license;

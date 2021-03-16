@@ -1,33 +1,28 @@
-import '@babel/polyfill'
+import Vue from 'vue';
+import 'babel-polyfill';
+import HoneyUI from 'honey-ui';
+import 'honey-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
+import router from '@/router';
+import store from '@/store';
+import './index.less';
 
-import Vue from 'vue'
+Vue.prototype.$flavor = {
+  env: {},
+};
 
-// import ElementUI from 'element-ui'
-import HoneyUI from 'honey-ui'
-import 'honey-ui/lib/theme-chalk/index.css'
-import App from './App.vue'
-import router from '@/router'
-import store from '@/store'
-import './index.less'
+Vue.use(HoneyUI);
 
-// raven-js
-import Raven from 'raven-js'
-import RavenVue from 'raven-js/plugins/vue'
+Vue.config.errorHandler = function(err) {
+  console.error('vue error:', err);
+};
 
-// Flavors support
-import Flavor from '../../flavors'
-
-Vue.prototype.$flavor = Flavor
-
-Vue.use(HoneyUI)
-
-// 收集线上报错
-
-console.log(router)
 /* eslint-disable-next-line no-new */
 new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
-})
+  render(h) {
+    return h(App);
+  },
+});
